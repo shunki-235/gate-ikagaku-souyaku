@@ -1,159 +1,427 @@
-<?php
-require_once 'includes/config.php';
-
-$page_title = '札幌市豊平区の訪問診療 | 24時間365日対応';
-$page_description = SITE_DESCRIPTION;
-
-include 'includes/header.php';
-?>
-
-<!-- Hero Section -->
-<section class="hero">
-    <div class="hero__bg"></div>
-    <div class="hero__content">
-        <div class="hero__text">
-            <span class="hero__catch">Home Medical Care</span>
-            <h1 class="hero__title">
-                あなたらしい毎日に<br>
-                <span class="hero__title-highlight">医療という安心を</span>
-            </h1>
-            <p class="hero__description">
-                私たちはお日様のぬくもりのように、関わるすべての人にそっと寄り添い、心と身体の健やかさ、そして安心を届けます。<br class="u-br-pc">
-                「おひさまホームクリニック」は、治す医療だけではなく、あなたを守る医療を目指します。
-            </p>
-            <p class="hero__opening"><?php echo h(CLINIC_OPENING); ?></p>
-            <div class="hero__buttons">
-                <a href="<?php echo h(SITE_URL); ?>/medical-care/" class="hero__btn hero__btn--primary">
-                    診療案内を見る
-                    <span class="hero__btn-icon">&rarr;</span>
-                </a>
-                <a href="<?php echo h(SITE_URL); ?>/contact/" class="hero__btn hero__btn--secondary">
-                    お問い合わせ
-                </a>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医化学創薬株式会社 | 糖鎖化学のスタンダードを提供します</title>
+    <meta name="description" content="医化学創薬株式会社は糖鎖化学のスタンダードを提供します。糖鎖受託解析・糖鎖受託合成・抗体関連サービスなど。">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- ========== Header ========== -->
+    <header class="header">
+        <div class="header__top-bar"></div>
+        <div class="header__inner">
+            <a href="/" class="header__logo">
+                <span class="header__logo-mark">MCP</span>
+                <span class="header__logo-text">医化学創薬株式会社</span>
+            </a>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item">
+                        <a href="#" class="header__nav-link">
+                            <svg class="header__nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <rect x="2" y="3" width="12" height="10" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M5 7h6M5 10h4" stroke="currentColor" stroke-width="1.2"/>
+                            </svg>
+                            企業情報
+                        </a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="#" class="header__nav-link">
+                            <svg class="header__nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <circle cx="8" cy="5" r="3" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M3 14c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                            採用情報
+                        </a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="#" class="header__nav-link">
+                            <svg class="header__nav-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M3 4h10M3 8h10M3 12h6" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                            お知らせ
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header__actions">
+                <a href="#" class="header__contact-btn">お問い合わせ</a>
+                <div class="header__search">
+                    <input type="search" class="header__search-input" placeholder="キーワード検索">
+                    <button class="header__search-btn" aria-label="検索">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
+            <button class="header__hamburger" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-        <div class="hero__visual">
-            <div class="hero__illustration">
-                <img src="<?php echo h(ASSETS_PATH); ?>/images/hero-landscape.webp" alt="おひさまホームクリニック 訪問診療のイメージ" width="600" height="400">
-            </div>
-            <div class="hero__stats-wrap">
-                <span class="hero__badge">訪問診療</span>
-                <div class="hero__stats">
-                    <div class="hero__stat">
-                        <div class="hero__stat-value">24h</div>
-                        <div class="hero__stat-label">365日対応</div>
+    </header>
+
+    <!-- ========== Mobile Nav ========== -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav__overlay"></div>
+        <div class="mobile-nav__content">
+            <ul class="mobile-nav__list">
+                <li><a href="#">企業情報</a></li>
+                <li><a href="#">採用情報</a></li>
+                <li><a href="#">お知らせ</a></li>
+                <li><a href="#">お問い合わせ</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main>
+        <!-- ========== Hero Slider ========== -->
+        <section class="hero">
+            <div class="hero__slider">
+                <div class="hero__slide hero__slide--active">
+                    <div class="hero__bg">
+                        <div class="hero__bg-shape hero__bg-shape--1"></div>
+                        <div class="hero__bg-shape hero__bg-shape--2"></div>
                     </div>
-                    <div class="hero__stat">
-                        <div class="hero__stat-value">内科・皮膚科</div>
-                        <div class="hero__stat-label">幅広い診療内容</div>
+                    <div class="hero__inner">
+                        <div class="hero__content">
+                            <h1 class="hero__title">
+                                <span class="hero__title-main">GT Platform</span>
+                                <span class="hero__title-sub">を基盤とした抗体取得</span>
+                            </h1>
+                            <p class="hero__lead">糖鎖化学<span>の</span>スタンダードを提供します。</p>
+                            <a href="#" class="hero__column-banner">
+                                <span class="hero__column-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <circle cx="12" cy="12" r="10" fill="#4A9A3A" stroke="#fff" stroke-width="1.5"/>
+                                        <text x="12" y="16" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">BCP</text>
+                                    </svg>
+                                </span>
+                                <span class="hero__column-text">糖鎖の世界をわかりやすく紹介</span>
+                                <span class="hero__column-title">糖鎖コラム</span>
+                                <span class="hero__column-pen">&#9998;</span>
+                            </a>
+                        </div>
+                        <div class="hero__visual">
+                            <div class="hero__mascot">
+                                <div class="hero__mascot-bubble">お問い合わせから<br>ご連絡ください</div>
+                                <div class="hero__mascot-img">
+                                    <svg width="120" height="120" viewBox="0 0 120 120">
+                                        <circle cx="60" cy="50" r="35" fill="#F5A623"/>
+                                        <circle cx="60" cy="45" r="25" fill="#4A9A3A"/>
+                                        <circle cx="52" cy="42" r="3" fill="#fff"/>
+                                        <circle cx="68" cy="42" r="3" fill="#fff"/>
+                                        <path d="M55 52 Q60 58 65 52" stroke="#fff" stroke-width="2" fill="none"/>
+                                        <rect x="45" y="75" width="30" height="25" rx="5" fill="#4A9A3A"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+            <div class="hero__dots">
+                <button class="hero__dot hero__dot--active" aria-label="スライド1"></button>
+                <button class="hero__dot" aria-label="スライド2"></button>
+                <button class="hero__dot" aria-label="スライド3"></button>
+            </div>
+            <div class="hero__wave">
+                <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+                    <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" fill="#ffffff"/>
+                </svg>
+            </div>
+        </section>
 
-<!-- Features Section -->
-<section class="features">
-    <div class="features__wave">
-        <svg viewBox="0 0 1440 80" fill="none" preserveAspectRatio="none">
-            <path d="M0,40 Q360,80 720,40 T1440,40 L1440,0 L0,0 Z" fill="var(--main-orange-pale)"/>
-        </svg>
-    </div>
-    <div class="section-header">
-        <p class="section-header__label">Our Features ~</p>
-        <h2 class="section-header__title">当院の特徴</h2>
-        <p class="section-header__text">
-            みなさまの「安心」のために<br>わたしたちができること
-        </p>
-    </div>
-    <div class="features__grid">
-        <div class="feature-card fade-in">
-            <div class="feature-card__image">
-                <img src="<?php echo h(ASSETS_PATH); ?>/images/feature-home-visit.webp" alt="ご自宅で診療" width="320" height="200" loading="lazy">
+        <!-- ========== News ========== -->
+        <section class="news">
+            <div class="news__inner">
+                <h2 class="news__heading">LATEST NEWS</h2>
+                <div class="news__content">
+                    <ul class="news__list">
+                        <li class="news__item">
+                            <time class="news__date" datetime="2025-09-10">2025年09月10日</time>
+                            <span class="news__tag">NEWS</span>
+                            <a href="#" class="news__link">ホームページリニューアルのお知らせ</a>
+                        </li>
+                        <li class="news__item">
+                            <time class="news__date" datetime="2025-09-10">2025年09月10日</time>
+                            <span class="news__tag">NEWS</span>
+                            <a href="#" class="news__link">ホームページリニューアルのお知らせ</a>
+                        </li>
+                        <li class="news__item">
+                            <time class="news__date" datetime="2025-09-10">2025年09月10日</time>
+                            <span class="news__tag">NEWS</span>
+                            <a href="#" class="news__link">ホームページリニューアルのお知らせ</a>
+                        </li>
+                    </ul>
+                    <a href="#" class="news__more">一覧へ
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
-            <h3 class="feature-card__title">皮膚科専門医も在籍</h3>
-            <p class="feature-card__text">
-                褥瘡対応等も専門的に対応。その他専門医も多数在籍しています。
-            </p>
-        </div>
-        <div class="feature-card fade-in">
-            <div class="feature-card__image">
-                <img src="<?php echo h(ASSETS_PATH); ?>/images/feature-24h.webp" alt="24時間365日対応" width="320" height="200" loading="lazy">
-            </div>
-            <h3 class="feature-card__title">24時間365日対応</h3>
-            <p class="feature-card__text">
-                定期訪問はもちろん、病状が変わった際は臨時で往診にも対応いたします。
-            </p>
-        </div>
-        <div class="feature-card fade-in">
-            <div class="feature-card__image">
-                <img src="<?php echo h(ASSETS_PATH); ?>/images/feature-team.webp" alt="多職種連携" width="320" height="200" loading="lazy">
-            </div>
-            <h3 class="feature-card__title">病院との連携体制</h3>
-            <p class="feature-card__text">
-                専門的な検査や治療は、連携している病院へご紹介いたします。
-            </p>
-        </div>
-    </div>
-</section>
+        </section>
 
-<!-- Message Section -->
-<section class="message">
-    <div class="message__inner">
-        <div class="message__visual fade-in">
-            <div class="message__image">
-                <img src="<?php echo h(ASSETS_PATH); ?>/images/care-living.webp" alt="院長と患者様" width="500" height="350" loading="lazy">
-            </div>
-        </div>
-        <div class="message__content fade-in">
-            <span class="message__quote">"</span>
-            <h2 class="message__title">
-                住み慣れたご自宅や施設で<br>
-                安心して過ごせるように
-            </h2>
-            <p class="message__text">
-                病院に合わせる医療から、“あなたに合わせた医療”へ。<br><br>
-                通院が難しくなったとき、医療の選択肢は「入院」だけではありません。訪問診療（在宅医療）とは、医師がご自宅や施設へ定期的に伺い、住み慣れた生活の場で医療を続けることです。おひさまは、患者さんの病気だけを見るのではなく、あなたの生活全体を見守る医療を大切にしています。
-            </p>
-            <ul class="message__points">
-                <li class="message__point">幅広い診療内容に対応</li>
-                <li class="message__point">訪問診療や緊急往診を実施</li>
-                <li class="message__point">居宅や施設でも可能な限り対応</li>
-            </ul>
-            <a href="<?php echo h(SITE_URL); ?>/doctors/" class="message__link">
-                院長紹介を見る
-                <span>&rarr;</span>
-            </a>
-        </div>
-    </div>
-</section>
+        <!-- ========== Services ========== -->
+        <section class="services">
+            <div class="services__inner">
+                <!-- Card 01: Large -->
+                <a href="#" class="services__card services__card--01">
+                    <div class="services__card-bg">
+                        <div class="services__card-bg-pattern"></div>
+                    </div>
+                    <span class="services__card-number">01</span>
+                    <div class="services__card-body">
+                        <span class="services__card-label">なぜ糖鎖？</span>
+                        <h3 class="services__card-title services__card-title--large">糖鎖の視点</h3>
+                        <p class="services__card-author">筆者：取締役（成地健太郎）</p>
+                        <span class="services__card-more">詳しく見る &gt;</span>
+                    </div>
+                </a>
 
-<!-- News Section -->
-<section class="news">
-    <div class="news__inner">
-        <div class="section-header">
-            <p class="section-header__label">News ~</p>
-            <h2 class="section-header__title">お知らせ</h2>
-        </div>
-        <div class="news__list">
-            <div class="news__item">
-                <span class="news__date">2026.01.14</span>
-                <span class="news__tag">お知らせ</span>
-                <p class="news__title"><a href="#">令和8年4月1日の開院に向けて準備を進めています</a></p>
-            </div>
-            <div class="news__item">
-                <span class="news__date">2026.01.14</span>
-                <span class="news__tag news__tag--recruit">採用</span>
-                <p class="news__title"><a href="<?php echo h(SITE_URL); ?>/recruit/">スタッフを募集しています</a></p>
-            </div>
-            <div class="news__item">
-                <span class="news__date">2026.03.01</span>
-                <span class="news__tag">お知らせ</span>
-                <p class="news__title"><a href="#">ホームページを開設しました</a></p>
-            </div>
-        </div>
-    </div>
-</section>
+                <!-- Card 02 -->
+                <a href="#" class="services__card services__card--02">
+                    <div class="services__card-bg">
+                        <div class="services__card-bg-image"></div>
+                    </div>
+                    <span class="services__card-number">02</span>
+                    <div class="services__card-body">
+                        <h3 class="services__card-title">糖鎖受託解析</h3>
+                        <p class="services__card-desc">多様な糖鎖解析品を正確に解析。<br>研究を次のステージへ導きます。</p>
+                        <span class="services__card-more">詳しく見る &gt;</span>
+                    </div>
+                </a>
 
-<?php include 'includes/footer.php'; ?>
+                <!-- Card 03 -->
+                <a href="#" class="services__card services__card--03">
+                    <div class="services__card-bg">
+                        <div class="services__card-bg-image"></div>
+                    </div>
+                    <span class="services__card-number">03</span>
+                    <div class="services__card-body">
+                        <h3 class="services__card-title">糖鎖受託合成</h3>
+                        <p class="services__card-desc">複雑な糖鎖も高品質で合成。<br>研究を加速する新技術へ。</p>
+                        <span class="services__card-more">詳しく見る &gt;</span>
+                    </div>
+                </a>
+
+                <!-- Card 04 -->
+                <a href="#" class="services__card services__card--small services__card--04">
+                    <div class="services__card-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="20" r="8" stroke="#4A9A3A" stroke-width="2"/>
+                            <path d="M16 38c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#4A9A3A" stroke-width="2"/>
+                            <circle cx="36" cy="16" r="5" stroke="#F5A623" stroke-width="1.5"/>
+                            <path d="M33 24c0-2 1.3-3.6 3-3.6s3 1.6 3 3.6" stroke="#F5A623" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <span class="services__card-number services__card-number--small">04</span>
+                    <h3 class="services__card-title services__card-title--small">抗体・タンパク<br>関連サービス</h3>
+                    <span class="services__card-more">詳しく見る &gt;</span>
+                </a>
+
+                <!-- Card 05 -->
+                <a href="#" class="services__card services__card--small services__card--05">
+                    <div class="services__card-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="10" y="8" width="28" height="32" rx="3" stroke="#4A9A3A" stroke-width="2"/>
+                            <path d="M16 16h16M16 22h16M16 28h10" stroke="#4A9A3A" stroke-width="1.5"/>
+                            <circle cx="36" cy="36" r="8" fill="#F5A623" opacity="0.2"/>
+                            <path d="M33 36l2 2 4-4" stroke="#F5A623" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span class="services__card-number services__card-number--small">05</span>
+                    <h3 class="services__card-title services__card-title--small">抗体関連製品</h3>
+                    <span class="services__card-more">詳しく見る &gt;</span>
+                </a>
+
+                <!-- Card 06 -->
+                <a href="#" class="services__card services__card--small services__card--06">
+                    <div class="services__card-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="8" y="12" width="32" height="24" rx="3" stroke="#4A9A3A" stroke-width="2"/>
+                            <circle cx="24" cy="24" r="6" stroke="#F5A623" stroke-width="2"/>
+                            <path d="M24 18v12M18 24h12" stroke="#F5A623" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <span class="services__card-number services__card-number--small">06</span>
+                    <h3 class="services__card-title services__card-title--small">抗体医薬開発システム<br>「QuaDRAD™」</h3>
+                    <span class="services__card-more">詳しく見る &gt;</span>
+                </a>
+
+                <!-- Card 07 -->
+                <a href="#" class="services__card services__card--small services__card--07">
+                    <div class="services__card-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="8" y="16" width="32" height="22" rx="2" stroke="#4A9A3A" stroke-width="2"/>
+                            <path d="M8 22h32" stroke="#4A9A3A" stroke-width="2"/>
+                            <path d="M16 10h16v6H16z" stroke="#4A9A3A" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <span class="services__card-number services__card-number--small">07</span>
+                    <h3 class="services__card-title services__card-title--small">企業情報</h3>
+                    <span class="services__card-more">詳しく見る &gt;</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ========== Sugar Chain Section ========== -->
+        <section class="sugar-chain">
+            <div class="sugar-chain__bg">
+                <div class="sugar-chain__bg-pattern"></div>
+            </div>
+            <div class="sugar-chain__inner">
+                <div class="sugar-chain__content">
+                    <span class="sugar-chain__badge">情報<br>発信</span>
+                    <h2 class="sugar-chain__title">糖鎖解析・糖鎖合成</h2>
+                    <div class="sugar-chain__illustration">
+                        <svg width="240" height="200" viewBox="0 0 240 200" fill="none">
+                            <circle cx="120" cy="100" r="70" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                            <circle cx="120" cy="100" r="50" fill="rgba(255,255,255,0.08)"/>
+                            <!-- Magnifying glass -->
+                            <circle cx="110" cy="90" r="30" stroke="#fff" stroke-width="3" fill="none"/>
+                            <line x1="132" y1="112" x2="155" y2="135" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+                            <!-- Person silhouette -->
+                            <circle cx="170" cy="70" r="15" fill="rgba(255,255,255,0.3)"/>
+                            <path d="M155 120 Q170 95 185 120" fill="rgba(255,255,255,0.2)"/>
+                            <!-- Molecule dots -->
+                            <circle cx="100" cy="80" r="4" fill="#8CC63E"/>
+                            <circle cx="115" cy="95" r="3" fill="#F5A623"/>
+                            <circle cx="105" cy="100" r="3" fill="#fff" opacity="0.5"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="sugar-chain__links">
+                    <a href="#" class="sugar-chain__link-btn">特徴技術</a>
+                    <a href="#" class="sugar-chain__link-btn">事例紹介</a>
+                    <a href="#" class="sugar-chain__link-btn">糖鎖解析・糖鎖合成Q&A</a>
+                    <a href="#" class="sugar-chain__link-btn">糖鎖コラム</a>
+                    <a href="#" class="sugar-chain__link-btn">糖鎖研究紹介</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== Partners ========== -->
+        <section class="partners">
+            <div class="partners__inner">
+                <div class="partners__list">
+                    <a href="#" class="partners__item">
+                        <div class="partners__logo-placeholder">住友ベークライト株式会社<br>S-バイオ事業部</div>
+                    </a>
+                    <a href="#" class="partners__item">
+                        <div class="partners__logo-placeholder">システム・<br>インスツルメンツ</div>
+                    </a>
+                    <a href="#" class="partners__item">
+                        <div class="partners__logo-placeholder">産学連携・技術移転<br>Technology Transfer</div>
+                    </a>
+                    <a href="#" class="partners__item">
+                        <div class="partners__logo-placeholder">atom.com</div>
+                    </a>
+                    <a href="#" class="partners__item">
+                        <div class="partners__logo-placeholder">TransGenic Inc.</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== Footer ========== -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__top">
+                <div class="footer__logo">
+                    <span class="footer__logo-mark">MCP</span>
+                    <span class="footer__logo-text">医化学創薬株式会社</span>
+                </div>
+                <a href="#" class="footer__privacy">プライバシーポリシーについて</a>
+            </div>
+            <div class="footer__sitemap">
+                <div class="footer__sitemap-col">
+                    <p class="footer__sitemap-heading">ホーム</p>
+                    <ul class="footer__sitemap-list">
+                        <li><a href="#">・コラム</a></li>
+                        <li><a href="#">・キーワード検索（ワード一覧から選択）</a></li>
+                        <li><a href="#">・なぜ糖鎖</a></li>
+                    </ul>
+                    <p class="footer__sitemap-heading">なぜ糖鎖（糖鎖解析・糖鎖合成 方法発信）</p>
+                    <ul class="footer__sitemap-list">
+                        <li><a href="#">・特長技術</a></li>
+                        <li><a href="#">・事例紹介</a></li>
+                        <li><a href="#">・糖鎖解析・糖鎖合成 Q&A</a></li>
+                        <li><a href="#">・糖鎖コラム</a></li>
+                        <li><a href="#">・糖鎖研究紹介</a></li>
+                    </ul>
+                    <p class="footer__sitemap-heading">受託解析</p>
+                    <ul class="footer__sitemap-list">
+                        <li><a href="#">・質量分析装置を用いた糖鎖解析</a></li>
+                        <li><a href="#">・単糖組成解析</a></li>
+                        <li><a href="#">・シアル酸解析構造解析</a></li>
+                        <li><a href="#">・N結合型糖鎖解析</a></li>
+                        <li><a href="#">・エクソーム糖鎖解析</a></li>
+                        <li><a href="#">・高速モビリティ分析サービス</a></li>
+                        <li><a href="#">・テーラーメイド型受託分析サービス</a></li>
+                        <li><a href="#">・ESI-MS, LC-MS 受託分析サービス</a></li>
+                        <li><a href="#">・インタクトマス及び糖鎖構造質量定量</a></li>
+                    </ul>
+                </div>
+                <div class="footer__sitemap-col">
+                    <p class="footer__sitemap-heading">受託合成</p>
+                    <ul class="footer__sitemap-list">
+                        <li><a href="#">・糖鎖合成と糖鎖合成</a></li>
+                        <li><a href="#">・糖ペプチド合成</a></li>
+                        <li><a href="#">・O結合型糖鎖シアリルTn合成</a></li>
+                        <li><a href="#">・ペプチド合成</a></li>
+                    </ul>
+                    <p class="footer__sitemap-heading">抗体・タンパク関連サービス</p>
+                    <ul class="footer__sitemap-list">
+                        <li><a href="#">抗体・タンパク関連受託</a></li>
+                        <li><a href="#">・モノクローナル抗体作製受託</a></li>
+                        <li><a href="#">・ポリクローナル抗体作製受託</a></li>
+                    </ul>
+                    <p class="footer__sitemap-heading">抗体関連製品</p>
+                    <ul class="footer__sitemap-list">
+                        <li><a href="#">・ELISA 測定受託サービス</a></li>
+                        <li><a href="#">・糖アミノ酸ビルディングブロック</a></li>
+                        <li><a href="#">・抗ボドプラニン抗体</a></li>
+                        <li><a href="#">・ホスホリルコリンリンカー/アミノオキシリンカー</a></li>
+                    </ul>
+                </div>
+                <div class="footer__sitemap-col">
+                    <p class="footer__sitemap-heading">抗体医薬開発システム<br>「QuaDRAD™」</p>
+                    <p class="footer__sitemap-heading">企業情報</p>
+                    <ul class="footer__sitemap-list">
+                        <li><a href="#">・ごあいさつ</a></li>
+                        <li><a href="#">・会社概要</a></li>
+                        <li><a href="#">・アクセス</a></li>
+                        <li><a href="#">・代理店のご案内</a></li>
+                    </ul>
+                    <p class="footer__sitemap-heading">採用情報</p>
+                    <ul class="footer__sitemap-list">
+                        <li><a href="#">・会社概要インデックス</a></li>
+                        <li><a href="#">・代表あいさつ</a></li>
+                        <li><a href="#">・社員の声</a></li>
+                        <li><a href="#">・募集要項</a></li>
+                    </ul>
+                    <p class="footer__sitemap-heading">お知らせ</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="footer__bottom-inner">
+                <p class="footer__contact-info">TEL 0123-29-5934　〒061-1405 北海道恵庭市戸磯452-1</p>
+                <p class="footer__copyright">Copyright&copy;2025 Medicinal Chemistry Pharmaceuticals Co., Ltd. all rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
