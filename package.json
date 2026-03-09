@@ -4,7 +4,7 @@
   "description": "医化学創薬",
   "private": true,
   "scripts": {
-    "dev": "browser-sync start --proxy 'localhost:8888/gate/ikagaku-souyaku/' --port 3000 --files 'assets/css/**/*.css, assets/js/**/*.js, **/*.php' --no-notify"
+    "dev": "browser-sync start --proxy 'localhost:8888/gate/ikagaku-souyaku/' --port 3000 --files 'assets/css/**/*.css, assets/js/**/*.js, **/*.html, **/*.php' --no-notify"
   },
   "devDependencies": {
     "browser-sync": "^3.0.2"
