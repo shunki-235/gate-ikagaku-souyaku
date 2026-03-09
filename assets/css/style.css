@@ -266,42 +266,24 @@ body {
 
 .hero__slide {
     position: relative;
-    min-height: 480px;
-    display: flex;
-    align-items: center;
 }
 
 .hero__bg {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, #3A7A2A 0%, #5BA636 30%, #7CB342 60%, #9ACD5A 100%);
+    position: relative;
     z-index: 0;
+    line-height: 0;
 }
 
-.hero__bg-shape--1 {
-    position: absolute;
-    top: -30%;
-    right: -10%;
-    width: 60%;
-    height: 160%;
-    background: rgba(255, 255, 255, 0.06);
-    border-radius: 50%;
-    transform: rotate(-15deg);
+.hero__bg-img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
-.hero__bg-shape--2 {
-    position: absolute;
-    bottom: -20%;
-    left: 10%;
-    width: 40%;
-    height: 120%;
-    background: rgba(255, 255, 255, 0.04);
-    border-radius: 50%;
-    transform: rotate(10deg);
-}
 
 .hero__inner {
-    position: relative;
+    position: absolute;
+    inset: 0;
     z-index: 1;
     display: flex;
     align-items: center;
@@ -445,19 +427,6 @@ body {
     background: var(--white);
 }
 
-.hero__wave {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 2;
-    line-height: 0;
-}
-
-.hero__wave svg {
-    width: 100%;
-    height: 50px;
-}
 
 /* ============================================
    News
