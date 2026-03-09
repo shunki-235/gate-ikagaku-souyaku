@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /includes/
+Disallow: /contact-mailbox/
+
+Sitemap: https://ohisama-hc.com/sitemap.xml

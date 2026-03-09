@@ -1,0 +1,5 @@
+node_modules/
+pnpm-lock.yaml
+.htpasswd
+.htaccess
+.ftp-deploy-sync-state.json

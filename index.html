@@ -1,0 +1,159 @@
+<?php
+require_once 'includes/config.php';
+
+$page_title = '札幌市豊平区の訪問診療 | 24時間365日対応';
+$page_description = SITE_DESCRIPTION;
+
+include 'includes/header.php';
+?>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__content">
+        <div class="hero__text">
+            <span class="hero__catch">Home Medical Care</span>
+            <h1 class="hero__title">
+                あなたらしい毎日に<br>
+                <span class="hero__title-highlight">医療という安心を</span>
+            </h1>
+            <p class="hero__description">
+                私たちはお日様のぬくもりのように、関わるすべての人にそっと寄り添い、心と身体の健やかさ、そして安心を届けます。<br class="u-br-pc">
+                「おひさまホームクリニック」は、治す医療だけではなく、あなたを守る医療を目指します。
+            </p>
+            <p class="hero__opening"><?php echo h(CLINIC_OPENING); ?></p>
+            <div class="hero__buttons">
+                <a href="<?php echo h(SITE_URL); ?>/medical-care/" class="hero__btn hero__btn--primary">
+                    診療案内を見る
+                    <span class="hero__btn-icon">&rarr;</span>
+                </a>
+                <a href="<?php echo h(SITE_URL); ?>/contact/" class="hero__btn hero__btn--secondary">
+                    お問い合わせ
+                </a>
+            </div>
+        </div>
+        <div class="hero__visual">
+            <div class="hero__illustration">
+                <img src="<?php echo h(ASSETS_PATH); ?>/images/hero-landscape.webp" alt="おひさまホームクリニック 訪問診療のイメージ" width="600" height="400">
+            </div>
+            <div class="hero__stats-wrap">
+                <span class="hero__badge">訪問診療</span>
+                <div class="hero__stats">
+                    <div class="hero__stat">
+                        <div class="hero__stat-value">24h</div>
+                        <div class="hero__stat-label">365日対応</div>
+                    </div>
+                    <div class="hero__stat">
+                        <div class="hero__stat-value">内科・皮膚科</div>
+                        <div class="hero__stat-label">幅広い診療内容</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features">
+    <div class="features__wave">
+        <svg viewBox="0 0 1440 80" fill="none" preserveAspectRatio="none">
+            <path d="M0,40 Q360,80 720,40 T1440,40 L1440,0 L0,0 Z" fill="var(--main-orange-pale)"/>
+        </svg>
+    </div>
+    <div class="section-header">
+        <p class="section-header__label">Our Features ~</p>
+        <h2 class="section-header__title">当院の特徴</h2>
+        <p class="section-header__text">
+            みなさまの「安心」のために<br>わたしたちができること
+        </p>
+    </div>
+    <div class="features__grid">
+        <div class="feature-card fade-in">
+            <div class="feature-card__image">
+                <img src="<?php echo h(ASSETS_PATH); ?>/images/feature-home-visit.webp" alt="ご自宅で診療" width="320" height="200" loading="lazy">
+            </div>
+            <h3 class="feature-card__title">皮膚科専門医も在籍</h3>
+            <p class="feature-card__text">
+                褥瘡対応等も専門的に対応。その他専門医も多数在籍しています。
+            </p>
+        </div>
+        <div class="feature-card fade-in">
+            <div class="feature-card__image">
+                <img src="<?php echo h(ASSETS_PATH); ?>/images/feature-24h.webp" alt="24時間365日対応" width="320" height="200" loading="lazy">
+            </div>
+            <h3 class="feature-card__title">24時間365日対応</h3>
+            <p class="feature-card__text">
+                定期訪問はもちろん、病状が変わった際は臨時で往診にも対応いたします。
+            </p>
+        </div>
+        <div class="feature-card fade-in">
+            <div class="feature-card__image">
+                <img src="<?php echo h(ASSETS_PATH); ?>/images/feature-team.webp" alt="多職種連携" width="320" height="200" loading="lazy">
+            </div>
+            <h3 class="feature-card__title">病院との連携体制</h3>
+            <p class="feature-card__text">
+                専門的な検査や治療は、連携している病院へご紹介いたします。
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Message Section -->
+<section class="message">
+    <div class="message__inner">
+        <div class="message__visual fade-in">
+            <div class="message__image">
+                <img src="<?php echo h(ASSETS_PATH); ?>/images/care-living.webp" alt="院長と患者様" width="500" height="350" loading="lazy">
+            </div>
+        </div>
+        <div class="message__content fade-in">
+            <span class="message__quote">"</span>
+            <h2 class="message__title">
+                住み慣れたご自宅や施設で<br>
+                安心して過ごせるように
+            </h2>
+            <p class="message__text">
+                病院に合わせる医療から、“あなたに合わせた医療”へ。<br><br>
+                通院が難しくなったとき、医療の選択肢は「入院」だけではありません。訪問診療（在宅医療）とは、医師がご自宅や施設へ定期的に伺い、住み慣れた生活の場で医療を続けることです。おひさまは、患者さんの病気だけを見るのではなく、あなたの生活全体を見守る医療を大切にしています。
+            </p>
+            <ul class="message__points">
+                <li class="message__point">幅広い診療内容に対応</li>
+                <li class="message__point">訪問診療や緊急往診を実施</li>
+                <li class="message__point">居宅や施設でも可能な限り対応</li>
+            </ul>
+            <a href="<?php echo h(SITE_URL); ?>/doctors/" class="message__link">
+                院長紹介を見る
+                <span>&rarr;</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- News Section -->
+<section class="news">
+    <div class="news__inner">
+        <div class="section-header">
+            <p class="section-header__label">News ~</p>
+            <h2 class="section-header__title">お知らせ</h2>
+        </div>
+        <div class="news__list">
+            <div class="news__item">
+                <span class="news__date">2026.01.14</span>
+                <span class="news__tag">お知らせ</span>
+                <p class="news__title"><a href="#">令和8年4月1日の開院に向けて準備を進めています</a></p>
+            </div>
+            <div class="news__item">
+                <span class="news__date">2026.01.14</span>
+                <span class="news__tag news__tag--recruit">採用</span>
+                <p class="news__title"><a href="<?php echo h(SITE_URL); ?>/recruit/">スタッフを募集しています</a></p>
+            </div>
+            <div class="news__item">
+                <span class="news__date">2026.03.01</span>
+                <span class="news__tag">お知らせ</span>
+                <p class="news__title"><a href="#">ホームページを開設しました</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<?php include 'includes/footer.php'; ?>
