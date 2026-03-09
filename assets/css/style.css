@@ -74,29 +74,12 @@ body {
 .header__logo {
     display: flex;
     align-items: center;
-    gap: 8px;
     flex-shrink: 0;
 }
 
-.header__logo-mark {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
+.header__logo-img {
     height: 40px;
-    background: var(--green-primary);
-    color: var(--white);
-    font-size: 11px;
-    font-weight: 700;
-    border-radius: 50%;
-    letter-spacing: 0.5px;
-}
-
-.header__logo-text {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text-dark);
-    white-space: nowrap;
+    width: auto;
 }
 
 .header__nav {
@@ -129,46 +112,58 @@ body {
 
 .header__actions {
     display: flex;
-    align-items: center;
-    gap: 12px;
+    flex-direction: column;
+    gap: 4px;
     flex-shrink: 0;
+    width: 200px;
 }
 
 .header__contact-btn {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    padding: 8px 20px;
-    background: var(--orange);
+    justify-content: center;
+    padding: 4px 20px;
+    background: #7BBE26;
     color: var(--white);
-    font-size: 13px;
-    font-weight: 600;
-    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", var(--font-family);
+    border-radius: 0;
     transition: background 0.2s;
     white-space: nowrap;
+    height: 26px;
+    box-sizing: border-box;
 }
 
 .header__contact-btn:hover {
-    background: var(--orange-dark);
+    background: #6aab1e;
 }
 
 .header__search {
     display: flex;
     align-items: center;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
+    border: 2px solid #221815;
+    border-radius: 0;
     overflow: hidden;
+    height: 32px;
+    box-sizing: border-box;
 }
 
 .header__search-input {
-    width: 140px;
-    padding: 6px 10px;
+    flex: 1;
+    min-width: 0;
+    padding: 4px 10px;
     border: none;
-    font-size: 13px;
+    font-size: 14px;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", var(--font-family);
     outline: none;
+    background: var(--white);
+    height: 100%;
+    box-sizing: border-box;
 }
 
 .header__search-input::placeholder {
-    color: var(--text-light);
+    color: #707070;
 }
 
 .header__search-btn {
@@ -176,16 +171,17 @@ body {
     align-items: center;
     justify-content: center;
     width: 32px;
-    height: 32px;
-    background: var(--green-primary);
+    height: 100%;
+    background: #221815;
     color: var(--white);
     border: none;
     cursor: pointer;
     transition: background 0.2s;
+    flex-shrink: 0;
 }
 
 .header__search-btn:hover {
-    background: var(--green-dark);
+    background: #3a302d;
 }
 
 .header__hamburger {
@@ -1033,7 +1029,7 @@ body {
         display: none;
     }
 
-    .header__search {
+    .header__actions {
         display: none;
     }
 
@@ -1102,12 +1098,8 @@ body {
         padding: 10px 16px;
     }
 
-    .header__logo-text {
-        font-size: 15px;
-    }
-
-    .header__contact-btn {
-        display: none;
+    .header__logo-img {
+        height: 32px;
     }
 
     .hero__slide {
