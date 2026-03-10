@@ -266,6 +266,7 @@ body {
 
 .hero__slide {
     position: relative;
+    isolation: isolate;
 }
 
 .hero__bg {
@@ -342,38 +343,71 @@ body {
 }
 
 .hero__column-banner {
-    display: inline-flex;
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    display: flex;
     align-items: center;
-    gap: 12px;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 12px 24px;
-    border-radius: 8px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
+    justify-content: center;
+    gap: 24px;
+    padding: 24px 40px;
+    transition: opacity 0.2s;
+}
+
+.hero__column-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #00682f;
+    opacity: 0.586;
+    mix-blend-mode: multiply;
 }
 
 .hero__column-banner:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    opacity: 0.85;
 }
 
-.hero__column-icon svg {
+.hero__column-icon {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.hero__column-icon img {
     display: block;
+    width: 56px;
+    height: 56px;
 }
 
 .hero__column-text {
-    font-size: 13px;
-    color: var(--text-gray);
+    position: relative;
+    font-size: 20px;
+    color: var(--white);
+    font-weight: 300;
+    white-space: nowrap;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
 }
 
 .hero__column-title {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--text-dark);
+    position: relative;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--white);
+    white-space: nowrap;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
 }
 
 .hero__column-pen {
-    font-size: 20px;
+    position: relative;
+    flex-shrink: 0;
+    line-height: 0;
+}
+
+.hero__column-pen img {
+    display: block;
+    width: 44px;
+    height: 44px;
 }
 
 .hero__visual {
@@ -1038,6 +1072,29 @@ body {
         display: none;
     }
 
+    .hero__column-banner {
+        gap: 16px;
+        padding: 18px 24px;
+    }
+
+    .hero__column-icon img {
+        width: 44px;
+        height: 44px;
+    }
+
+    .hero__column-text {
+        font-size: 16px;
+    }
+
+    .hero__column-title {
+        font-size: 36px;
+    }
+
+    .hero__column-pen img {
+        width: 36px;
+        height: 36px;
+    }
+
     .services__inner {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1116,13 +1173,26 @@ body {
     }
 
     .hero__column-banner {
-        flex-wrap: wrap;
-        gap: 8px;
-        padding: 10px 16px;
+        gap: 12px;
+        padding: 14px 16px;
+    }
+
+    .hero__column-icon img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .hero__column-text {
+        font-size: 12px;
     }
 
     .hero__column-title {
-        font-size: 18px;
+        font-size: 24px;
+    }
+
+    .hero__column-pen img {
+        width: 28px;
+        height: 28px;
     }
 
     .news__inner {
