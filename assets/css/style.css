@@ -484,7 +484,7 @@ body {
 
 .news__inner {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 48px;
     max-width: 1200px;
     margin: 0 auto;
@@ -492,12 +492,12 @@ body {
 }
 
 .news__heading {
-    font-size: 24px;
+    font-size: 34px;
     font-weight: 700;
-    color: var(--text-dark);
+    color: #00682f;
+    font-family: "Helvetica", "Arial", sans-serif;
     letter-spacing: 2px;
     white-space: nowrap;
-    padding-top: 4px;
 }
 
 .news__content {
@@ -509,38 +509,41 @@ body {
 
 .news__list {
     flex: 1;
-    border-top: 1px solid var(--border-color);
 }
 
 .news__item {
     display: flex;
     align-items: center;
     gap: 16px;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--border-color);
+    padding: 12px 0;
     flex-wrap: wrap;
 }
 
 .news__date {
     font-size: 14px;
-    color: var(--text-gray);
+    font-family: "Helvetica", "Arial", var(--font-family);
+    color: var(--text-dark);
+    letter-spacing: 0.1em;
     white-space: nowrap;
 }
 
 .news__tag {
-    display: inline-block;
-    padding: 2px 12px;
-    background: var(--green-primary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    height: 24px;
+    background: #f59542;
     color: var(--white);
-    font-size: 11px;
-    font-weight: 600;
-    border-radius: 3px;
-    letter-spacing: 1px;
+    font-size: 14px;
+    font-family: "Helvetica", "Arial", sans-serif;
+    letter-spacing: 0.1em;
 }
 
 .news__link {
     font-size: 14px;
     color: var(--text-dark);
+    letter-spacing: 0.1em;
     transition: color 0.2s;
 }
 
@@ -551,20 +554,21 @@ body {
 .news__more {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
-    padding: 10px 24px;
-    border: 2px solid var(--green-primary);
-    color: var(--green-primary);
-    font-size: 14px;
-    font-weight: 600;
-    border-radius: 30px;
+    justify-content: center;
+    min-width: 200px;
+    height: 50px;
+    padding: 0 40px;
+    border: 1.5px solid #7BBF25;
+    color: #7BBE26;
+    font-size: 18px;
+    border-radius: 25px;
     white-space: nowrap;
     transition: background 0.2s, color 0.2s;
     flex-shrink: 0;
 }
 
 .news__more:hover {
-    background: var(--green-primary);
+    background: #7BBF25;
     color: var(--white);
 }
 
