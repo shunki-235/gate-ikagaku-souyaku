@@ -4,67 +4,83 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## プロジェクト概要
 
-おひさまホームクリニック（訪問診療クリニック）のコーポレートサイト。
-6ページ構成のシンプルなPHPサイト。デザインは柔らかく親しみのある雰囲気。
+医化学創薬株式会社（Medicinal Chemistry Pharmaceuticals Co., Ltd.）のコーポレートサイト。
+糖鎖化学（糖鎖受託解析・糖鎖受託合成・抗体関連サービスなど）を提供する企業のWebサイト。
+静的HTML + CSS + JSで構築。
 
 ## 開発環境
 
 - **サーバー**: MAMP（ローカル）
-- **URL**: http://localhost:8888/ohisama-hc/
-- **PHP**: 8.x
+- **URL**: http://localhost:8888/gate/ikagaku-souyaku/
+- **開発サーバー**: Browser-Sync（port 3000）
+- **パッケージマネージャ**: pnpm
+- **起動**: `./dev-start.sh` または `pnpm dev`
 
 ## ディレクトリ構成
 
 ```
-ohisama-hc/
-├── index.php              # トップページ
-├── pages/                 # 各ページ（medical-care, doctors, faq, recruit, contact）
-├── includes/              # 共通パーツ（header, footer, nav, config）
-└── assets/
-    ├── css/               # スタイルシート
-    ├── js/                # JavaScript
-    └── images/            # 画像
+ikagaku-souyaku/
+├── index.html             # トップページ（メイン）
+├── pages/                 # 下層ページ（未作成）
+├── assets/
+│   ├── css/
+│   │   ├── reset.css      # リセットCSS
+│   │   └── style.css      # メインスタイル
+│   ├── js/
+│   │   └── main.js        # メインJS
+│   └── images/
+│       ├── icon/           # ロゴ・アイコン（SVG/PNG）
+│       └── background/     # 背景画像
+├── robots.txt
+├── sitemap.xml
+├── dev-start.sh           # 開発環境起動スクリプト
+└── package.json           # Browser-Sync設定
 ```
 
 ## デザイン仕様
 
-詳細は `DESIGN.md` を参照。
+### カラーパレット（CSS変数）
+- グリーン系（メイン）: `--green-primary: #4A9A3A` / `--green-dark: #2D6B22` / `--green-light: #7CB342`
+- オレンジ（アクセント）: `--orange: #F5A623`
+- テキスト: `--text-dark: #333333` / `--text-gray: #666666`
+- 背景: `--bg-light: #F9F9F6` / `--white: #FFFFFF`
 
-### カラーパレット
-- メイン: `#F5A962`（オレンジ）
-- サブ: `#FFF8F0`（ベージュ）
-- アクセント: `#7CB342`（グリーン）
-- テキスト: `#333333`
-- 背景: `#FFFDF9`
+### フォント
+- `"Noto Sans JP"`, `"Hiragino Kaku Gothic ProN"`, `"Hiragino Sans"`, `Meiryo`, `sans-serif`
 
 ### CSS設計
 - BEM記法を使用
-- レスポンシブ: モバイル（〜767px）、タブレット（768px〜1023px）、デスクトップ（1024px〜）
+- CSS変数を `:root` で管理
+- レスポンシブ対応
 
-## ページ一覧
+## トップページ構成（index.html）
 
-| ページ | ファイル | 内容 |
-|--------|----------|------|
-| TOP | `index.php` | メインビジュアル、特徴、お知らせ |
-| 診療案内 | `pages/medical-care.php` | 診療内容、訪問エリア |
-| 医師紹介 | `pages/doctors.php` | 院長挨拶、プロフィール |
-| FAQ | `pages/faq.php` | よくある質問（アコーディオン） |
-| 採用情報 | `pages/recruit.php` | 募集要項 |
-| お問い合わせ | `pages/contact.php` | フォーム |
+| セクション | クラス名 | 内容 |
+|-----------|---------|------|
+| ヘッダー | `.header` | ロゴ、ナビ（企業情報・採用情報・お知らせ）、お問い合わせ、検索 |
+| モバイルナビ | `.mobile-nav` | ハンバーガーメニュー展開時 |
+| ヒーロー | `.hero` | スライダー、GT Platform訴求、糖鎖コラムバナー |
+| お知らせ | `.news` | LATEST NEWS一覧 |
+| サービス | `.services` | 7枚のカード（糖鎖の視点、受託解析、受託合成、抗体関連など） |
+| 糖鎖情報 | `.sugar-chain` | 情報発信セクション（特徴技術、事例紹介、Q&Aなど） |
+| パートナー | `.partners` | 関連企業ロゴ一覧 |
+| フッター | `.footer` | サイトマップ、連絡先、コピーライト |
 
 ## コーディング規約
 
-- PHPの共通パーツは `includes/` に配置し、`include` で読み込む
-- 画像パスは `assets/images/` を基準にする
 - クラス名はBEM記法: `.block__element--modifier`
+- 画像パスは `assets/images/` を基準にする
 - 日本語コンテンツのため `lang="ja"` を設定
+- CSS変数は `:root` に定義し、直書きの色コードを避ける
 
-## Gitルール
+## コミットメッセージ規約
 
-- コミットメッセージに `Co-Authored-By` を含めない
+- 日本語で書く
+- 形式: `<prefix>: <説明>`
+- prefix: `feat` / `fix` / `refactor` / `chore` / `docs` / `style` / `test`
+- `Co-Authored-By` は付けない
 
-## デプロイ/認証メモ
+## デプロイ
 
-- `.htaccess` / `.htpasswd` はサーバー固有設定になりやすく、誤ると `500` になり得るため Git 管理しない
-- Basic認証を使う場合はサーバー側に `.htaccess` と `.htpasswd` を配置する
-- GitHub Actions のFTPデプロイでは `.htaccess` / `.htpasswd` / `.htaccess.example` を除外している
+- `.htaccess` / `.htpasswd` は Git 管理しない
+- GitHub Actions のFTPデプロイを使用（`.github/workflows/` に設定）
