@@ -5,7 +5,8 @@
       "Bash(pnpm install:*)",
       "Bash(curl:*)",
       "mcp__codex__codex",
-      "Bash(sips:*)"
+      "Bash(sips:*)",
+      "Bash(gh run:*)"
     ]
   }
 }
