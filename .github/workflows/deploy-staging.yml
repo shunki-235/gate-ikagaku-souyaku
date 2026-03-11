@@ -1,0 +1,58 @@
+name: Deploy to staging
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - ".github/**"
+      - ".claude/**"
+      - ".cursorrules"
+      - "AGENTS.md"
+      - "CLAUDE.md"
+      - "DEPLOY_STAGING.md"
+      - "dev-start.sh"
+      - "package.json"
+      - "pnpm-lock.yaml"
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-staging
+  cancel-in-progress: true
+
+jobs:
+  ftp-deploy:
+    name: FTP deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    environment:
+      name: staging
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to staging server
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.STAGING_FTP_SERVER }}
+          username: ${{ secrets.STAGING_FTP_USERNAME }}
+          password: ${{ secrets.STAGING_FTP_PASSWORD }}
+          server-dir: ${{ vars.STAGING_FTP_SERVER_DIR || './' }}
+          state-name: .ftp-deploy-sync-state.json
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/.claude/**
+            **/.cursorrules
+            **/.DS_Store
+            **/.ftp-deploy-sync-state.json
+            **/node_modules/**
+            AGENTS.md
+            CLAUDE.md
+            DEPLOY_STAGING.md
+            dev-start.sh
+            package.json
+            pnpm-lock.yaml
