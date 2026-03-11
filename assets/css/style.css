@@ -286,18 +286,17 @@ body {
     position: absolute;
     inset: 0;
     z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 60px 20px 80px;
+    padding: 60px 20px 0;
     gap: 40px;
+    height: fit-content;
 }
 
 .hero__content {
     flex: 1;
-    max-width: 600px;
+    width: 100%;
+    height: fit-content;
 }
 
 .hero__title {
@@ -320,6 +319,7 @@ body {
     font-weight: 300;
     color: #00682f;
     margin-top: 4px;
+    margin-left: 100px;
     font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
 }
 
@@ -343,17 +343,17 @@ body {
 }
 
 .hero__column-banner {
-    position: absolute;
-    bottom: 50px;
-    left: 0;
-    right: 0;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 24px;
-    padding: 24px 40px;
+    padding: 0 40px;
     transition: opacity 0.2s;
+    width: 100vw;
 }
 
 .hero__column-banner::before {
@@ -1316,6 +1316,7 @@ body {
 
     .hero__title-sub {
         font-size: 32px;
+        margin-left: 0;
     }
 
     .hero__lead-main {
