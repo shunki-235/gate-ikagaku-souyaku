@@ -71,14 +71,9 @@ jobs:
           STAGING_SFTP_PORT: ${{ vars.STAGING_SFTP_PORT || '22' }}
           STAGING_SFTP_REMOTE_DIR: ${{ vars.STAGING_FTP_SERVER_DIR || './' }}
         run: |
-          cat > ~/.netrc <<EOF
-          machine $STAGING_SFTP_SERVER
-          login $STAGING_SFTP_USERNAME
-          password $STAGING_SFTP_PASSWORD
-          EOF
-          chmod 600 ~/.netrc
+          export LFTP_PASSWORD="$STAGING_SFTP_PASSWORD"
 
-          lftp "sftp://$STAGING_SFTP_SERVER:$STAGING_SFTP_PORT" <<EOF
+          lftp --env-password -u "$STAGING_SFTP_USERNAME" "sftp://$STAGING_SFTP_SERVER:$STAGING_SFTP_PORT" <<EOF
           set cmd:fail-exit yes
           set net:max-retries 2
           set net:timeout 20
