@@ -196,9 +196,9 @@ body {
     padding: 0;
     width: 70px;
     height: 70px;
-    position: fixed;
-    right: 0;
+    position: absolute;
     top: 0;
+    right: 0;
     z-index: 200;
     flex-shrink: 0;
 }
@@ -1559,11 +1559,25 @@ body {
    ============================================ */
 @media (max-width: 767px) {
     .header__inner {
-        padding: 10px 16px;
+        padding: 10px 70px 10px 16px;
     }
 
     .header__logo-img {
         height: 32px;
+    }
+
+    .header__hamburger {
+        width: 56px;
+        height: 56px;
+        gap: 5px;
+    }
+
+    .header__hamburger--active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .header__hamburger--active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
     }
 
     .hero__inner {
