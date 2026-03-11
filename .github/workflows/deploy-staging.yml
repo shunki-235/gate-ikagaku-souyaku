@@ -21,8 +21,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  ftp-deploy:
-    name: FTP deploy
+  sftp-deploy:
+    name: SFTP deploy
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
@@ -32,27 +32,52 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Prepare deploy files
+        run: |
+          DEPLOY_DIR="$RUNNER_TEMP/deploy-staging"
+          rm -rf "$DEPLOY_DIR"
+          mkdir -p "$DEPLOY_DIR"
+          rsync -av --delete \
+            --exclude=".git/" \
+            --exclude=".gitignore" \
+            --exclude=".gitattributes" \
+            --exclude=".gitmodules" \
+            --exclude=".github/" \
+            --exclude=".claude/" \
+            --exclude=".cursorrules" \
+            --exclude=".DS_Store" \
+            --exclude=".ftp-deploy-sync-state.json" \
+            --exclude="node_modules/" \
+            --exclude="AGENTS.md" \
+            --exclude="CLAUDE.md" \
+            --exclude="DEPLOY_STAGING.md" \
+            --exclude="dev-start.sh" \
+            --exclude="package.json" \
+            --exclude="pnpm-lock.yaml" \
+            ./ "$DEPLOY_DIR"/
+          echo "DEPLOY_DIR=$DEPLOY_DIR" >> "$GITHUB_ENV"
 
       - name: Deploy to staging server
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
-        with:
-          server: ${{ secrets.STAGING_FTP_SERVER }}
-          username: ${{ secrets.STAGING_FTP_USERNAME }}
-          password: ${{ secrets.STAGING_FTP_PASSWORD }}
-          server-dir: ${{ vars.STAGING_FTP_SERVER_DIR || './' }}
-          state-name: .ftp-deploy-sync-state.json
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.github/**
-            **/.claude/**
-            **/.cursorrules
-            **/.DS_Store
-            **/.ftp-deploy-sync-state.json
-            **/node_modules/**
-            AGENTS.md
-            CLAUDE.md
-            DEPLOY_STAGING.md
-            dev-start.sh
-            package.json
-            pnpm-lock.yaml
+        env:
+          STAGING_SFTP_SERVER: ${{ secrets.STAGING_FTP_SERVER }}
+          STAGING_SFTP_USERNAME: ${{ secrets.STAGING_FTP_USERNAME }}
+          STAGING_SFTP_PASSWORD: ${{ secrets.STAGING_FTP_PASSWORD }}
+          STAGING_SFTP_PORT: ${{ vars.STAGING_SFTP_PORT || '22' }}
+          STAGING_SFTP_REMOTE_DIR: ${{ vars.STAGING_FTP_SERVER_DIR || './' }}
+        run: |
+          lftp -u "$STAGING_SFTP_USERNAME","$STAGING_SFTP_PASSWORD" "sftp://$STAGING_SFTP_SERVER:$STAGING_SFTP_PORT" <<EOF
+          set cmd:fail-exit yes
+          set net:max-retries 2
+          set net:timeout 20
+          set sftp:auto-confirm yes
+          lcd $DEPLOY_DIR
+          mkdir -p "$STAGING_SFTP_REMOTE_DIR"
+          mirror --reverse --delete --verbose . "$STAGING_SFTP_REMOTE_DIR"
+          bye
+          EOF
