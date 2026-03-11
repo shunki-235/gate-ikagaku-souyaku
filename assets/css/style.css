@@ -594,7 +594,6 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
-    border-radius: 12px;
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
     color: var(--white);
@@ -737,34 +736,45 @@ body {
 /* Card 02, 03 - Medium */
 .services__card--02 {
     grid-column: 1 / 3;
-    min-height: 220px;
+    min-height: 340px;
 }
 
 .services__card--03 {
     grid-column: 3 / 5;
-    min-height: 220px;
+    min-height: 340px;
 }
 
 .services__card--02 .services__card-bg,
 .services__card--03 .services__card-bg {
     position: absolute;
     inset: 0;
+    overflow: hidden;
 }
 
-.services__card--02 .services__card-bg {
-    background: linear-gradient(135deg, #3A7A2A 0%, #5BA636 100%);
+.services__card--02 .services__card-bg-image {
+    position: absolute;
+    inset: 0;
+    background-image: url('../images/top/tousa-jutaku-kaiseki.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
-.services__card--03 .services__card-bg {
-    background: linear-gradient(135deg, #4A8A30 0%, #6BAA42 100%);
-}
-
-.services__card--02 .services__card-bg-image,
 .services__card--03 .services__card-bg-image {
     position: absolute;
     inset: 0;
-    background: rgba(255, 255, 255, 0.05);
-    background-image: radial-gradient(circle at 70% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    background-image: url('../images/top/tousa-jutaku-gousei.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services__card--02 .services__card-bg::after,
+.services__card--03 .services__card-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #7aeda6;
+    mix-blend-mode: multiply;
+    z-index: 1;
 }
 
 .services__card--02 .services__card-body,
@@ -775,7 +785,32 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-align: center;
     flex: 1;
+}
+
+.services__card--02 .services__card-hexagon,
+.services__card--03 .services__card-hexagon {
+    margin-bottom: 12px;
+    flex-shrink: 0;
+}
+
+.services__card--02 .services__card-hexagon svg,
+.services__card--03 .services__card-hexagon svg {
+    display: block;
+    width: 90px;
+    height: auto;
+}
+
+.services__card--02 .services__card-title,
+.services__card--03 .services__card-title {
+    font-size: 48px;
+    font-weight: 300;
+    margin-bottom: 12px;
+    line-height: 1.3;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
 }
 
 .services__card-title {
@@ -785,11 +820,35 @@ body {
     line-height: 1.4;
 }
 
+.services__card--02 .services__card-desc,
+.services__card--03 .services__card-desc {
+    font-size: 16px;
+    font-weight: 300;
+    opacity: 1;
+    line-height: 1.75;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+}
+
 .services__card-desc {
     font-size: 13px;
     opacity: 0.9;
     line-height: 1.8;
     margin-bottom: 16px;
+}
+
+.services__card--02 .services__card-more,
+.services__card--03 .services__card-more {
+    display: inline-block;
+    background: #00682f;
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    padding: 5px 18px;
+    border-radius: 5px;
+    margin-top: auto;
 }
 
 .services__card-number {
@@ -804,6 +863,25 @@ body {
     line-height: 1;
 }
 
+.services__card--02 .services__card-number,
+.services__card--03 .services__card-number {
+    top: 0;
+    right: 0;
+    width: 74px;
+    height: 67px;
+    background: #00682f;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    z-index: 3;
+    font-size: 30px;
+    font-weight: 500;
+    font-family: "Futura", "Century Gothic", sans-serif;
+    opacity: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 6px 8px 0 0;
+}
+
 .services__card-more {
     font-size: 13px;
     font-weight: 600;
@@ -813,50 +891,115 @@ body {
 
 /* Card 04-07 - Small */
 .services__card--small {
-    background: var(--white);
-    color: var(--text-dark);
-    border: 1px solid var(--border-color);
-    padding: 28px 20px;
+    color: var(--white);
+    overflow: hidden;
+}
+
+.services__card--small .services__card-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.services__card--04 .services__card-bg-image {
+    position: absolute;
+    inset: 0;
+    background-image: url('../images/top/koutai-tanpaku.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services__card--05 .services__card-bg-image {
+    position: absolute;
+    inset: 0;
+    background-image: url('../images/top/koutai-kanren.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services__card--06 .services__card-bg-image {
+    position: absolute;
+    inset: 0;
+    background-image: url('../images/top/koutai-iyaku-kaihatsu.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services__card--07 .services__card-bg-image {
+    position: absolute;
+    inset: 0;
+    background-image: url('../images/top/kigyou-jouhou.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services__card--small .services__card-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #7aeda6;
+    mix-blend-mode: multiply;
+    z-index: 1;
+}
+
+.services__card--small .services__card-number {
+    top: 0;
+    right: 0;
+    width: 74px;
+    height: 67px;
+    background: #00682f;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    z-index: 3;
+    font-size: 30px;
+    font-weight: 500;
+    font-family: "Futura", "Century Gothic", sans-serif;
+    opacity: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 6px 8px 0 0;
+}
+
+.services__card--small .services__card-hexagon {
+    margin-bottom: 12px;
+    flex-shrink: 0;
+}
+
+.services__card--small .services__card-hexagon svg {
+    display: block;
+    width: 70px;
+    height: auto;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.services__card-body--small {
+    position: relative;
+    z-index: 1;
+    padding: 24px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
     text-align: center;
-}
-
-.services__card--small:hover {
-    border-color: var(--green-primary);
-}
-
-.services__card-icon {
-    margin-bottom: 12px;
-}
-
-.services__card-number--small {
-    position: static;
-    display: block;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--green-primary);
-    opacity: 1;
-    margin-bottom: 8px;
-    background: var(--green-pale);
-    width: 32px;
-    height: 32px;
-    line-height: 32px;
-    border-radius: 50%;
-    text-align: center;
+    flex: 1;
 }
 
 .services__card-title--small {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 700;
     line-height: 1.5;
-    margin-bottom: 16px;
-    min-height: 42px;
+    margin-bottom: 12px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .services__card--small .services__card-more {
-    font-size: 12px;
-    color: var(--green-primary);
-    font-weight: 600;
+    display: inline-block;
+    background: #00682f;
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 300;
+    padding: 4px 14px;
+    border-radius: 5px;
 }
 
 /* ============================================
@@ -1374,7 +1517,7 @@ body {
     .services__card--02,
     .services__card--03 {
         grid-column: 1;
-        min-height: 180px;
+        min-height: 280px;
     }
 
     .sugar-chain__title {
