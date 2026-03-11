@@ -61,20 +61,22 @@ jobs:
             ./ "$DEPLOY_DIR"/
           echo "DEPLOY_DIR=$DEPLOY_DIR" >> "$GITHUB_ENV"
 
-      - name: Debug connectivity
+      - name: Debug connectivity and auth
         env:
           STAGING_FTP_SERVER: ${{ secrets.STAGING_FTP_SERVER }}
+          STAGING_FTP_USERNAME: ${{ secrets.STAGING_FTP_USERNAME }}
+          STAGING_FTP_PASSWORD: ${{ secrets.STAGING_FTP_PASSWORD }}
         run: |
-          echo "=== Testing DNS resolution ==="
-          host "$STAGING_FTP_SERVER" || echo "DNS resolution failed"
+          echo "=== Testing FTP auth with curl ==="
+          curl -v --ssl-reqd --ftp-ssl \
+            --user "$STAGING_FTP_USERNAME:$STAGING_FTP_PASSWORD" \
+            "ftp://$STAGING_FTP_SERVER/" \
+            --list-only 2>&1 | head -50
 
           echo ""
-          echo "=== Testing TCP connection to port 21 ==="
-          timeout 10 bash -c "echo > /dev/tcp/$STAGING_FTP_SERVER/21" 2>&1 && echo "Port 21: OK" || echo "Port 21: FAILED"
-
-          echo ""
-          echo "=== Testing TLS handshake ==="
-          echo "QUIT" | timeout 15 openssl s_client -connect "$STAGING_FTP_SERVER:21" -starttls ftp 2>&1 | head -30
+          echo "=== Password length check ==="
+          echo "Password length: ${#STAGING_FTP_PASSWORD}"
+          echo "Username length: ${#STAGING_FTP_USERNAME}"
 
       - name: Deploy to staging server
         env:
