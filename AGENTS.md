@@ -2,6 +2,14 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## 追加ルール
+
+`.claude/rules/` 内のルールファイルを参照し、適用する。
+
+- `@.claude/rules/commit-message-format.mdc` — コミットメッセージ規約（Conventional Commits ベース、詳細）
+- `@.claude/rules/prompt-injection-guard.mdc` — プロンプトインジェクション対策
+- `@.claude/rules/v5.mdc` — その他ルール
+
 ## プロジェクト概要
 
 医化学創薬株式会社（Medicinal Chemistry Pharmaceuticals Co., Ltd.）のコーポレートサイト。
