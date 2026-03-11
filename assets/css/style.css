@@ -419,6 +419,7 @@ body {
 }
 
 .hero__lead-sub {
+    display: inline-block;
     font-size: 36px;
     font-weight: 300;
     font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
@@ -1400,6 +1401,10 @@ body {
         padding-right: 90px;
     }
 
+    .hero__inner {
+        padding-top: 140px;
+    }
+
     .hero__slide {
         min-height: 80dvh;
     }
@@ -1435,7 +1440,18 @@ body {
     }
 
     .hero__visual {
-        display: none;
+        top: 100px;
+        right: 16px;
+    }
+
+    .hero__mascot-img img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .hero__mascot-bubble {
+        font-size: 10px;
+        padding: 6px 10px;
     }
 
     .hero__column-banner {
@@ -1581,11 +1597,26 @@ body {
     }
 
     .hero__inner {
-        padding: 40px 16px 60px;
+        padding: 120px 16px 60px;
+    }
+
+    .hero__visual {
+        top: 40px;
+        right: 12px;
+    }
+
+    .hero__mascot-img img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .hero__mascot-bubble {
+        font-size: 9px;
+        padding: 5px 8px;
     }
 
     .hero__title-main {
-        font-size: 40px;
+        font-size: 50px;
     }
 
     .hero__title-sub {
