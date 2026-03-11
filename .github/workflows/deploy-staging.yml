@@ -61,6 +61,21 @@ jobs:
             ./ "$DEPLOY_DIR"/
           echo "DEPLOY_DIR=$DEPLOY_DIR" >> "$GITHUB_ENV"
 
+      - name: Debug connectivity
+        env:
+          STAGING_FTP_SERVER: ${{ secrets.STAGING_FTP_SERVER }}
+        run: |
+          echo "=== Testing DNS resolution ==="
+          host "$STAGING_FTP_SERVER" || echo "DNS resolution failed"
+
+          echo ""
+          echo "=== Testing TCP connection to port 21 ==="
+          timeout 10 bash -c "echo > /dev/tcp/$STAGING_FTP_SERVER/21" 2>&1 && echo "Port 21: OK" || echo "Port 21: FAILED"
+
+          echo ""
+          echo "=== Testing TLS handshake ==="
+          echo "QUIT" | timeout 15 openssl s_client -connect "$STAGING_FTP_SERVER:21" -starttls ftp 2>&1 | head -30
+
       - name: Deploy to staging server
         env:
           STAGING_FTP_SERVER: ${{ secrets.STAGING_FTP_SERVER }}
@@ -72,14 +87,16 @@ jobs:
 
           lftp <<EOF
           set cmd:fail-exit yes
-          set net:max-retries 2
-          set net:timeout 20
+          set net:max-retries 3
+          set net:timeout 30
           set ftp:ssl-auth TLS
           set ftp:ssl-force yes
           set ftp:ssl-protect-data yes
           set ftp:passive-mode yes
           set ftp:prefer-epsv false
           set ftp:use-feat no
+          set ssl:verify-certificate no
+          debug 5
           open "$STAGING_FTP_SERVER"
           user "$STAGING_FTP_USERNAME" "$STAGING_FTP_PASSWORD"
           mirror --reverse --delete --only-newer --verbose "$DEPLOY_DIR" "$REMOTE_DIR"
