@@ -68,6 +68,8 @@ jobs:
           STAGING_FTP_PASSWORD: ${{ secrets.STAGING_FTP_PASSWORD }}
           STAGING_FTP_SERVER_DIR: ${{ vars.STAGING_FTP_SERVER_DIR || vars.STAGING_SFTP_REMOTE_DIR || './' }}
         run: |
+          REMOTE_DIR="${STAGING_FTP_SERVER_DIR#./}"
+
           lftp <<EOF
           set cmd:fail-exit yes
           set net:max-retries 2
@@ -76,11 +78,10 @@ jobs:
           set ftp:ssl-force yes
           set ftp:ssl-protect-data yes
           set ftp:passive-mode yes
+          set ftp:prefer-epsv false
           set ftp:use-feat no
           open "$STAGING_FTP_SERVER"
           user "$STAGING_FTP_USERNAME" "$STAGING_FTP_PASSWORD"
-          lcd "$DEPLOY_DIR"
-          mkdir -p "$STAGING_FTP_SERVER_DIR"
-          mirror --reverse --delete --only-newer --verbose . "$STAGING_FTP_SERVER_DIR"
+          mirror --reverse --delete --only-newer --verbose "$DEPLOY_DIR" "$REMOTE_DIR"
           bye
           EOF
