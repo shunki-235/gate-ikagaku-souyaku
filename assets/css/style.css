@@ -266,6 +266,79 @@ body {
 }
 
 /* ============================================
+   Mobile Sticky Bar
+   ============================================ */
+.mobile-sticky-bar {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 98;
+    height: 56px;
+    align-items: stretch;
+    transition: transform 0.3s ease;
+}
+
+.mobile-sticky-bar--hidden {
+    transform: translateY(-100%);
+}
+
+.mobile-sticky-bar__contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 74px;
+    background: #7bbe26;
+    flex-shrink: 0;
+    transition: background 0.2s;
+}
+
+.mobile-sticky-bar__contact:hover {
+    background: #6aab1e;
+}
+
+.mobile-sticky-bar__search {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+    border: 2px solid #221815;
+    background: var(--white);
+    min-width: 0;
+}
+
+.mobile-sticky-bar__search-input {
+    flex: 1;
+    min-width: 0;
+    padding: 0 16px;
+    border: none;
+    font-size: 14px;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", var(--font-family);
+    outline: none;
+    background: transparent;
+    color: var(--text-dark);
+}
+
+.mobile-sticky-bar__search-input::placeholder {
+    color: #707070;
+}
+
+.mobile-sticky-bar__search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    background: #221815;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s;
+}
+
+.mobile-sticky-bar__search-btn:hover {
+    background: #3a302d;
+}
+
+/* ============================================
    Hero
    ============================================ */
 .hero {
@@ -1307,6 +1380,10 @@ body {
    Responsive - Tablet (768px - 1023px)
    ============================================ */
 @media (max-width: 1023px) {
+    .mobile-sticky-bar {
+        display: flex;
+    }
+
     .header__nav {
         display: none;
     }
