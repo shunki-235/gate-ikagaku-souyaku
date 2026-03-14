@@ -1758,7 +1758,7 @@ body {
 
     .services__card--01 .services__card-more {
         position: absolute;
-        bottom: 16px;
+        bottom: 8px;
         right: 20px;
     }
 
@@ -1811,7 +1811,77 @@ body {
     .services__card--02,
     .services__card--03 {
         grid-column: 1;
-        min-height: 280px;
+        min-height: auto;
+        flex-direction: column;
+    }
+
+    .services__card--02 .services__card-bg,
+    .services__card--03 .services__card-bg {
+        position: relative;
+        inset: auto;
+        height: 180px;
+        flex-shrink: 0;
+    }
+
+    .services__card--02 .services__card-body,
+    .services__card--03 .services__card-body {
+        position: static;
+        padding: 12px 20px 16px;
+        align-items: flex-start;
+        text-align: left;
+        justify-content: flex-start;
+        flex: none;
+        background: var(--white);
+    }
+
+    .services__card--02 .services__card-hexagon,
+    .services__card--03 .services__card-hexagon {
+        position: absolute;
+        top: 70px;
+        left: 20px;
+        transform: translateY(-50%);
+        z-index: 2;
+        margin-bottom: 0;
+    }
+
+    .services__card--02 .services__card-hexagon svg,
+    .services__card--03 .services__card-hexagon svg {
+        width: 60px;
+    }
+
+    .services__card--02 .services__card-title,
+    .services__card--03 .services__card-title {
+        position: absolute;
+        top: 90px;
+        left: 94px;
+        transform: translateY(-50%);
+        z-index: 2;
+        margin-bottom: 0;
+        white-space: nowrap;
+        font-size: 36px;
+    }
+
+    .services__card--02 .services__card-desc,
+    .services__card--03 .services__card-desc {
+        color: var(--text-dark);
+        text-shadow: none;
+        font-size: 14px;
+        line-height: 1.7;
+        margin-bottom: 8px;
+    }
+
+    .services__card--02 .services__card-desc br,
+    .services__card--03 .services__card-desc br {
+        display: none;
+    }
+
+    .services__card--02 .services__card-more,
+    .services__card--03 .services__card-more {
+        position: absolute;
+        top: 130px;
+        right: 16px;
+        z-index: 2;
+        margin-top: 0;
     }
 
     .sugar-chain__header {
