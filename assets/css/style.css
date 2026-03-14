@@ -229,7 +229,12 @@ body {
 .mobile-nav {
     display: none;
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    height: 100dvh;
     z-index: 99;
 }
 
@@ -246,23 +251,48 @@ body {
 .mobile-nav__content {
     position: absolute;
     top: 0;
-    right: 0;
-    width: 280px;
+    left: 0;
+    width: 100%;
     height: 100%;
-    background: var(--white);
-    padding: 80px 24px 24px;
+    background: #c0ddcd;
+    padding: 80px 40px 40px;
+    padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .mobile-nav__list li {
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid #00682f;
+}
+
+.mobile-nav__list li:last-child {
+    border-bottom: none;
 }
 
 .mobile-nav__list a {
-    display: block;
-    padding: 16px 0;
-    font-size: 15px;
-    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    font-size: 20px;
+    font-weight: 300;
+    color: #00682f;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+}
+
+.mobile-nav__tm {
+    font-size: 0.55em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+.mobile-nav__arrow {
+    flex-shrink: 0;
+    font-family: Helvetica, sans-serif;
+    font-size: 20px;
+    color: #00682f;
+    letter-spacing: 0.1em;
 }
 
 /* ============================================
