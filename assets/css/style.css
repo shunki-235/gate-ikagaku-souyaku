@@ -1108,27 +1108,30 @@ body {
    ============================================ */
 .sugar-chain {
     position: relative;
-    overflow: hidden;
+    padding-bottom: 50px;
 }
 
 .sugar-chain__bg {
-    position: relative;
+    position: absolute;
+    inset: 0;
     line-height: 0;
+    z-index: 0;
 }
 
 .sugar-chain__bg-img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
+    object-fit: cover;
+    object-position: top;
 }
 
 .sugar-chain__inner {
-    position: absolute;
-    inset: 0;
+    position: relative;
     z-index: 1;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 100px 20px 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
