@@ -1135,7 +1135,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
+    gap: 50px;
 }
 
 .sugar-chain__header {
@@ -1584,7 +1584,7 @@ body {
 
     .sugar-chain__partners-inner {
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .sugar-chain__partner-item {
