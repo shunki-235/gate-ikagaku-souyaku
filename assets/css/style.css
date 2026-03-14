@@ -1707,11 +1707,11 @@ body {
     }
 
     .services__inner {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .services__card--01 {
-        grid-column: 1;
+        grid-column: span 2;
         min-height: auto;
         flex-direction: column;
     }
@@ -1810,7 +1810,7 @@ body {
 
     .services__card--02,
     .services__card--03 {
-        grid-column: 1;
+        grid-column: span 2;
         min-height: auto;
         flex-direction: column;
     }
@@ -1950,5 +1950,20 @@ body {
     .footer__tel,
     .footer__address {
         font-size: 12px;
+    }
+}
+
+/* ==========================================
+   Small Mobile (max-width: 639px) - Tailwind sm相当
+   ========================================== */
+@media (max-width: 639px) {
+    .services__inner {
+        grid-template-columns: 1fr;
+    }
+
+    .services__card--01,
+    .services__card--02,
+    .services__card--03 {
+        grid-column: 1;
     }
 }
