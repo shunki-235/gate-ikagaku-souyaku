@@ -1765,7 +1765,7 @@ body {
     .services__card--01 .services__card-info {
         position: relative;
         z-index: 1;
-        padding: 12px 20px 16px;
+        padding: 12px 0px 16px;
         align-items: flex-start;
         gap: 8px;
         background: var(--white);
@@ -1826,7 +1826,7 @@ body {
     .services__card--02 .services__card-body,
     .services__card--03 .services__card-body {
         position: static;
-        padding: 12px 20px 16px;
+        padding: 12px 0px 16px;
         align-items: flex-start;
         text-align: left;
         justify-content: flex-start;
