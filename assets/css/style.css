@@ -1185,7 +1185,7 @@ body {
 }
 
 .sugar-chain__illustration img {
-    max-width: 100%;
+    max-width: 50dvw;
     height: auto;
     max-height: 400px;
 }
@@ -1885,8 +1885,8 @@ body {
     }
 
     .sugar-chain__header {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
         gap: 12px;
     }
 
@@ -1897,7 +1897,11 @@ body {
     }
 
     .sugar-chain__title {
-        font-size: 32px;
+        font-size: 44px;
+    }
+
+    .sugar-chain__title-dot {
+        display: none;
     }
 
     .sugar-chain__body {
@@ -1917,6 +1921,7 @@ body {
 
     .sugar-chain__illustration img {
         max-height: 280px;
+        max-width: 100%;
     }
 
     .sugar-chain__partners-inner {
