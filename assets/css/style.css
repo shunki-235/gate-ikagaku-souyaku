@@ -828,6 +828,10 @@ body {
     letter-spacing: 0.1em;
     padding: 5px 18px;
     border-radius: 5px;
+    position: absolute;
+    bottom: 28px;
+    right: 40px;
+    z-index: 2;
 }
 
 /* Card 02, 03 - Medium */
@@ -1709,16 +1713,82 @@ body {
     .services__card--01 {
         grid-column: 1;
         min-height: auto;
+        flex-direction: column;
+    }
+
+    .services__card--01 .services__card-bg {
+        position: relative;
+        inset: auto;
+        height: 172px;
+        flex-shrink: 0;
+    }
+
+    .services__card--01 .services__card-number {
+        z-index: 3;
     }
 
     .services__card--01 .services__card-body {
+        position: static;
         flex-direction: column;
-        padding: 24px 20px 20px;
-        gap: 20px;
+        padding: 0;
+        gap: 0;
     }
 
-    .services__card-hero {
+    .services__card--01 .services__card-hero {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 172px;
+        padding: 24px 20px 16px;
         gap: 14px;
+        z-index: 2;
+        align-items: center;
+        flex-wrap: wrap;
+        align-content: center;
+    }
+
+    .services__card--01 .services__card-hero-text {
+        gap: 2px;
+    }
+
+    .services__card--01 .services__card-author {
+        display: none;
+    }
+
+    .services__card--01 .services__card-more {
+        position: absolute;
+        bottom: 16px;
+        right: 20px;
+    }
+
+    .services__card--01 .services__card-info {
+        position: relative;
+        z-index: 1;
+        padding: 12px 20px 16px;
+        align-items: flex-start;
+        gap: 8px;
+        background: var(--white);
+    }
+
+    .services__card--01 .services__card-info::before {
+        content: "[執筆：取締役\3000成地健太郎]";
+        display: block;
+        font-size: 14px;
+        font-weight: 300;
+        color: var(--text-dark);
+        letter-spacing: 0.1em;
+    }
+
+    .services__card--01 .services__card-description {
+        font-size: 14px;
+        color: var(--text-dark);
+        text-shadow: none;
+        line-height: 1.7;
+    }
+
+    .services__card--01 .services__card-description br {
+        display: none;
     }
 
     .services__card-hexagon svg {
@@ -1736,18 +1806,6 @@ body {
     .services__card-title-particle {
         font-size: 32px;
         top: 5px;
-    }
-
-    .services__card-author {
-        font-size: 14px;
-    }
-
-    .services__card-info {
-        align-items: flex-start;
-    }
-
-    .services__card-description {
-        font-size: 15px;
     }
 
     .services__card--02,
