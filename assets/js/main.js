@@ -31,14 +31,17 @@ function initHamburgerMenu() {
 /* Mobile Sticky Bar */
 function initMobileStickyBar() {
     var bar = document.getElementById('mobileStickyBar');
-    if (!bar) return;
+    var bottomBar = document.getElementById('mobileBottomBar');
+    if (!bar && !bottomBar) return;
 
     var header = document.querySelector('.header');
     var lastScrollY = window.scrollY;
     var ticking = false;
 
     function updatePosition() {
-        bar.style.top = header.offsetHeight + 'px';
+        if (bar) {
+            bar.style.top = header.offsetHeight + 'px';
+        }
     }
 
     function onScroll() {
@@ -47,9 +50,11 @@ function initMobileStickyBar() {
         window.requestAnimationFrame(function () {
             var currentScrollY = window.scrollY;
             if (currentScrollY - lastScrollY > 5 && currentScrollY > header.offsetHeight) {
-                bar.classList.add('mobile-sticky-bar--hidden');
+                if (bar) bar.classList.add('mobile-sticky-bar--hidden');
+                if (bottomBar) bottomBar.classList.add('mobile-bottom-bar--hidden');
             } else if (lastScrollY - currentScrollY > 5) {
-                bar.classList.remove('mobile-sticky-bar--hidden');
+                if (bar) bar.classList.remove('mobile-sticky-bar--hidden');
+                if (bottomBar) bottomBar.classList.remove('mobile-bottom-bar--hidden');
             }
             lastScrollY = currentScrollY;
             ticking = false;

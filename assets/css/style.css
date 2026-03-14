@@ -296,6 +296,48 @@ body {
 }
 
 /* ============================================
+   Mobile Bottom Bar
+   ============================================ */
+.mobile-bottom-bar {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 98;
+    height: 77px;
+    transition: transform 0.3s ease;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.mobile-bottom-bar--hidden {
+    transform: translateY(100%);
+}
+
+.mobile-bottom-bar__item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: #fff;
+    border: 1px solid #7bbf25;
+    text-decoration: none;
+}
+
+.mobile-bottom-bar__icon {
+    width: 16px;
+    height: 16px;
+}
+
+.mobile-bottom-bar__label {
+    font-size: 18px;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif;
+    font-weight: 300;
+    color: var(--text-dark);
+}
+
+/* ============================================
    Mobile Sticky Bar
    ============================================ */
 .mobile-sticky-bar {
@@ -1433,6 +1475,10 @@ body {
    ============================================ */
 @media (max-width: 1023px) {
     .mobile-sticky-bar {
+        display: flex;
+    }
+
+    .mobile-bottom-bar {
         display: flex;
     }
 
