@@ -2356,3 +2356,346 @@ body {
         grid-column: 1;
     }
 }
+
+/* ============================================
+   Detail Sub-page (e.g. 単糖組成解析)
+   ============================================ */
+
+/* --- Detail Title Bar --- */
+.detail-title {
+    background: linear-gradient(to right, #006830, #7bbf25);
+    padding: 0;
+}
+
+.detail-title__inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 30px;
+}
+
+.detail-title__text {
+    color: var(--white);
+    font-size: 2.375rem;
+    font-weight: 300;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    line-height: 1.4;
+}
+
+/* --- Detail Section --- */
+.detail-section {
+    margin-bottom: 0;
+}
+
+.detail-section__heading {
+    background: linear-gradient(to right, #7bbe26, var(--white));
+    padding: 0;
+}
+
+.detail-section__heading-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 14px 20px;
+}
+
+.detail-section__heading-text {
+    color: var(--white);
+    font-size: 1.875rem;
+    font-weight: 300;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    line-height: 1.4;
+}
+
+.detail-section__body {
+    padding: 0;
+}
+
+.detail-section__body-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+.detail-section__text {
+    font-size: 1.25rem;
+    line-height: 1.75;
+    color: var(--text-dark);
+}
+
+/* --- Image Placeholder --- */
+.detail-section__image-placeholder {
+    width: 100%;
+    max-width: 710px;
+    aspect-ratio: 710 / 432;
+    background-color: #f0f0f0;
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+    border-radius: 4px;
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+.detail-section__image-placeholder--small {
+    max-width: 300px;
+    aspect-ratio: 300 / 270;
+}
+
+.detail-section__image-placeholder--wide {
+    max-width: 768px;
+    aspect-ratio: 768 / 464;
+}
+
+/* --- Equipment Badge & Info --- */
+.detail-section__equipment {
+    margin-top: 40px;
+}
+
+.detail-section__equipment-badge {
+    display: inline-block;
+    background-color: #006830;
+    color: var(--white);
+    border-radius: 25px;
+    padding: 10px 30px;
+    font-size: 1.5625rem;
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+.detail-section__equipment-info {
+    margin-top: 20px;
+    font-size: 1.25rem;
+    line-height: 1.75;
+    color: var(--text-dark);
+}
+
+.detail-section__equipment-info p {
+    margin: 0;
+}
+
+/* --- Detail Table --- */
+.detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.detail-table__th {
+    background-color: #e0e0e0;
+    border: 1px solid #707070;
+    padding: 12px 20px;
+    font-size: 1.25rem;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.detail-table__td {
+    background-color: var(--white);
+    border: 1px solid #707070;
+    padding: 20px;
+    font-size: 1.25rem;
+    line-height: 1.75;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.detail-table__td:first-child {
+    text-align: left;
+}
+
+/* --- Report List --- */
+.detail-report-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: report-counter;
+}
+
+.detail-report-list__item {
+    font-size: 1.25rem;
+    line-height: 1.75;
+    color: var(--text-dark);
+    counter-increment: report-counter;
+}
+
+.detail-report-list__item::before {
+    content: counter(report-counter) ".";
+    margin-right: 0.25em;
+}
+
+/* --- Detail Contact Section --- */
+.detail-contact {
+    padding: 60px 0 80px;
+}
+
+.detail-contact__inner {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.detail-contact__cards {
+    display: flex;
+    gap: 30px;
+}
+
+.detail-contact__card {
+    flex: 1;
+    border: 1px solid #006830;
+    border-radius: 10px;
+    padding: 30px;
+    background: linear-gradient(to bottom, #7bbe26, var(--white));
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-contact__card-title {
+    color: var(--white);
+    font-size: 1.875rem;
+    font-weight: 300;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.detail-contact__card-text {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.detail-contact__card-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background-color: #006830;
+    color: var(--white);
+    border-radius: 25px;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.75rem;
+    font-weight: 300;
+    transition: opacity 0.3s ease;
+}
+
+.detail-contact__card-btn:hover {
+    opacity: 0.85;
+}
+
+.detail-contact__card-btn-icon {
+    flex-shrink: 0;
+}
+
+.detail-contact__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background-color: #f59541;
+    color: var(--white);
+    border-radius: 40px;
+    padding: 20px 40px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2.1875rem;
+    font-weight: 300;
+    margin-top: 40px;
+    transition: opacity 0.3s ease;
+}
+
+.detail-contact__cta:hover {
+    opacity: 0.85;
+}
+
+.detail-contact__cta-icon {
+    flex-shrink: 0;
+}
+
+/* --- Detail Sub-page Responsive --- */
+@media (max-width: 1023px) {
+    .detail-title__text {
+        font-size: 1.75rem;
+    }
+
+    .detail-section__heading-text {
+        font-size: 1.375rem;
+    }
+
+    .detail-section__text,
+    .detail-section__equipment-info,
+    .detail-table__th,
+    .detail-table__td,
+    .detail-contact__card-text,
+    .detail-report-list__item {
+        font-size: 1rem;
+    }
+
+    .detail-section__equipment-badge {
+        font-size: 1.25rem;
+    }
+
+    .detail-contact__card-title {
+        font-size: 1.375rem;
+    }
+
+    .detail-contact__card-btn {
+        font-size: 1.25rem;
+    }
+
+    .detail-contact__cta {
+        font-size: 1.375rem;
+        padding: 16px 24px;
+    }
+
+    .detail-section__body-inner,
+    .detail-title__inner,
+    .detail-contact__inner {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .detail-title__text {
+        font-size: 1.5rem;
+    }
+
+    .detail-section__heading-text {
+        font-size: 1.125rem;
+    }
+
+    .detail-contact__cards {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .detail-contact__card-title {
+        font-size: 1.25rem;
+    }
+
+    .detail-contact__card-btn {
+        font-size: 1.125rem;
+    }
+
+    .detail-contact__cta {
+        font-size: 1.125rem;
+        padding: 14px 20px;
+        margin-top: 24px;
+    }
+
+    .detail-section__image-placeholder,
+    .detail-section__image-placeholder--small,
+    .detail-section__image-placeholder--wide {
+        max-width: 100%;
+    }
+
+    .detail-table {
+        display: block;
+        overflow-x: auto;
+    }
+}
