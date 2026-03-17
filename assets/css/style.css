@@ -195,7 +195,7 @@ body {
     cursor: pointer;
     padding: 0;
     width: 70px;
-    height: 70px;
+    height: 100%;
     position: absolute;
     top: 0;
     right: 0;
@@ -1695,7 +1695,6 @@ body {
 
     .header__hamburger {
         width: 56px;
-        height: 56px;
         gap: 5px;
     }
 
