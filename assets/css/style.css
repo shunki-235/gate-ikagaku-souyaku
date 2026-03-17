@@ -1329,6 +1329,100 @@ body {
 }
 
 /* ============================================
+   Subpage - Page Hero
+   ============================================ */
+.page-hero {
+    position: relative;
+    overflow: hidden;
+    height: 280px;
+}
+
+.page-hero__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.page-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(122, 237, 166, 0.5);
+}
+
+.page-hero__number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.page-hero__number-bg {
+    width: 67px;
+    height: 74px;
+    display: block;
+}
+
+.page-hero__number-text {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: var(--white);
+    font-family: "Futura", "Trebuchet MS", Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1;
+    z-index: 3;
+}
+
+.page-hero__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.page-hero__icon {
+    flex-shrink: 0;
+    width: 120px;
+    height: 104px;
+    filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.3));
+}
+
+.page-hero__icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.page-hero__content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.page-hero__title {
+    font-size: 60px;
+    font-weight: 300;
+    color: var(--white);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
+}
+
+.page-hero__subtitle {
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--white);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    line-height: 1.75;
+}
+
+/* ============================================
    Subpage - Breadcrumb
    ============================================ */
 .breadcrumb {
@@ -2112,6 +2206,38 @@ body {
     .sugar-chain__partner-item {
         flex: 0 0 calc(50% - 5px);
         height: 64px;
+    }
+
+    .page-hero {
+        height: 200px;
+    }
+
+    .page-hero__number-bg {
+        width: 47px;
+        height: 52px;
+    }
+
+    .page-hero__number-text {
+        font-size: 20px;
+        top: 5px;
+        left: 8px;
+    }
+
+    .page-hero__icon {
+        width: 80px;
+        height: 70px;
+    }
+
+    .page-hero__inner {
+        gap: 16px;
+    }
+
+    .page-hero__title {
+        font-size: 32px;
+    }
+
+    .page-hero__subtitle {
+        font-size: 14px;
     }
 
     .breadcrumb__list {
