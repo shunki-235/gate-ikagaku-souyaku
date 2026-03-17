@@ -29,7 +29,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```
 ikagaku-souyaku/
 ├── index.html             # トップページ（メイン）
-├── pages/                 # 下層ページ（未作成）
+├── analysis/              # 糖鎖受託解析（/analysis/）
+│   └── monosaccharide-composition/  # 単糖組成解析（/analysis/monosaccharide-composition/）
 ├── assets/
 │   ├── css/
 │   │   ├── reset.css      # リセットCSS
