@@ -2364,7 +2364,7 @@ body {
 /* --- Detail Title Bar --- */
 .detail-title {
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 0 auto 12px;
     background: linear-gradient(to right, #006830, #7bbf25);
     padding: 20px 30px;
 }
@@ -2406,30 +2406,25 @@ body {
     color: var(--text-dark);
 }
 
-/* --- Image Placeholder --- */
-.detail-section__image-placeholder {
+/* --- Image Wrap --- */
+.detail-section__image-wrap {
     width: 100%;
     max-width: 710px;
-    aspect-ratio: 710 / 432;
-    background-color: #f0f0f0;
-    border: 2px dashed #ccc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin: 30px 0;
-    border-radius: 4px;
-    color: var(--text-light);
-    font-size: 1rem;
 }
 
-.detail-section__image-placeholder--small {
+.detail-section__image-wrap--small {
     max-width: 300px;
-    aspect-ratio: 300 / 270;
 }
 
-.detail-section__image-placeholder--wide {
+.detail-section__image-wrap--wide {
     max-width: 768px;
-    aspect-ratio: 768 / 464;
+}
+
+.detail-section__image {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* --- Equipment Badge & Info --- */
@@ -2586,7 +2581,7 @@ body {
     text-decoration: none;
     font-size: 2.1875rem;
     font-weight: 300;
-    margin-top: 40px;
+    margin-bottom: 40px;
     transition: opacity 0.3s ease;
 }
 
@@ -2634,7 +2629,13 @@ body {
         padding: 16px 24px;
     }
 
-    .detail-title,
+    .detail-title {
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
     .detail-section,
     .detail-contact {
         padding-left: 20px;
@@ -2670,10 +2671,13 @@ body {
         margin-top: 24px;
     }
 
-    .detail-section__image-placeholder,
-    .detail-section__image-placeholder--small,
-    .detail-section__image-placeholder--wide {
+    .detail-section__image-wrap,
+    .detail-section__image-wrap--wide {
         max-width: 100%;
+    }
+
+    .detail-section__image-wrap--small {
+        max-width: 50%;
     }
 
     .detail-table {
