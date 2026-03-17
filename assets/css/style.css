@@ -1329,6 +1329,104 @@ body {
 }
 
 /* ============================================
+   Subpage - Breadcrumb
+   ============================================ */
+.breadcrumb {
+    padding: 20px 0;
+}
+
+.breadcrumb__inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.breadcrumb__list {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.breadcrumb__item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb__item + .breadcrumb__item::before {
+    content: ">";
+    margin: 0 8px;
+    color: var(--text-dark);
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.breadcrumb__link {
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+.breadcrumb__link:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   Subpage - Page Intro
+   ============================================ */
+.page-intro {
+    padding: 20px 0 40px;
+}
+
+.page-intro__inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.page-intro__text {
+    font-size: 20px;
+    line-height: 1.75;
+    color: var(--text-dark);
+}
+
+/* ============================================
+   Subpage - Service List
+   ============================================ */
+.service-list {
+    padding: 0 0 80px;
+}
+
+.service-list__inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.service-list__item {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    padding: 0 20px;
+    background: linear-gradient(90deg, #006830, #7bbf25);
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.service-list__item:hover {
+    opacity: 0.85;
+}
+
+.service-list__label {
+    font-size: 38px;
+    font-weight: 300;
+    color: var(--white);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================
    Footer
    ============================================ */
 .footer {
@@ -1665,6 +1763,10 @@ body {
 
     .sugar-chain__partner-item {
         flex: 0 0 calc(33.333% - 12px);
+    }
+
+    .service-list__label {
+        font-size: 28px;
     }
 
     .footer__sitemap {
@@ -2010,6 +2112,27 @@ body {
     .sugar-chain__partner-item {
         flex: 0 0 calc(50% - 5px);
         height: 64px;
+    }
+
+    .breadcrumb__list {
+        font-size: 14px;
+    }
+
+    .page-intro__text {
+        font-size: 15px;
+    }
+
+    .service-list__inner {
+        gap: 16px;
+    }
+
+    .service-list__item {
+        height: 60px;
+        padding: 0 16px;
+    }
+
+    .service-list__label {
+        font-size: 20px;
     }
 
     .footer__sitemap {
