@@ -2363,13 +2363,9 @@ body {
 
 /* --- Detail Title Bar --- */
 .detail-title {
-    background: linear-gradient(to right, #006830, #7bbf25);
-    padding: 0;
-}
-
-.detail-title__inner {
     max-width: 1000px;
     margin: 0 auto;
+    background: linear-gradient(to right, #006830, #7bbf25);
     padding: 20px 30px;
 }
 
@@ -2383,17 +2379,12 @@ body {
 
 /* --- Detail Section --- */
 .detail-section {
-    margin-bottom: 0;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .detail-section__heading {
     background: linear-gradient(to right, #7bbe26, var(--white));
-    padding: 0;
-}
-
-.detail-section__heading-inner {
-    max-width: 1000px;
-    margin: 0 auto;
     padding: 14px 20px;
 }
 
@@ -2406,12 +2397,6 @@ body {
 }
 
 .detail-section__body {
-    padding: 0;
-}
-
-.detail-section__body-inner {
-    max-width: 1000px;
-    margin: 0 auto;
     padding: 30px 0;
 }
 
@@ -2527,12 +2512,9 @@ body {
 
 /* --- Detail Contact Section --- */
 .detail-contact {
-    padding: 60px 0 80px;
-}
-
-.detail-contact__inner {
     max-width: 1000px;
     margin: 0 auto;
+    padding: 60px 0 80px;
 }
 
 .detail-contact__cards {
@@ -2652,9 +2634,9 @@ body {
         padding: 16px 24px;
     }
 
-    .detail-section__body-inner,
-    .detail-title__inner,
-    .detail-contact__inner {
+    .detail-title,
+    .detail-section,
+    .detail-contact {
         padding-left: 20px;
         padding-right: 20px;
     }
