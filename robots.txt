@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Disallow: /includes/
-Disallow: /contact-mailbox/
+Disallow: /assets/
+Disallow: /node_modules/
 
-Sitemap: https://ohisama-hc.com/sitemap.xml
+Sitemap: https://www.ikagaku-souyaku.co.jp/sitemap.xml
