@@ -507,7 +507,6 @@ body {
     justify-content: center;
     gap: 24px;
     padding: 0 40px;
-    transition: opacity 0.2s;
     width: 100vw;
 }
 
@@ -518,10 +517,6 @@ body {
     background: #00682f;
     opacity: 0.586;
     mix-blend-mode: multiply;
-}
-
-.hero__column-banner:hover {
-    opacity: 0.85;
 }
 
 .hero__column-icon {
