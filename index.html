@@ -50,6 +50,9 @@
             </button>
           </div>
         </div>
+        <button type="button" class="header__search-toggle" id="headerSearchToggle" aria-label="検索を開く" aria-expanded="false" aria-controls="mobileStickyBarSearch">
+          <img src="assets/images/icon/kensaku_totu.svg" alt="" class="header__search-toggle-img" width="30" height="32" />
+        </button>
         <button class="header__hamburger" aria-label="メニューを開く">
           <span></span>
           <span></span>
@@ -68,13 +71,10 @@
           <path d="M29 21L19 12" stroke="#fff" stroke-width="2.3" fill="none" />
         </svg>
       </a>
-      <div class="mobile-sticky-bar__search">
-        <input type="search" class="mobile-sticky-bar__search-input" placeholder="キーワード検索" />
-        <button class="mobile-sticky-bar__search-btn" aria-label="検索">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="10" cy="10" r="7" stroke="#fff" stroke-width="2.5" />
-            <path d="M15.5 15.5L22 22" stroke="#fff" stroke-width="3" stroke-linecap="round" />
-          </svg>
+      <div class="mobile-sticky-bar__search mobile-sticky-bar__search--collapsible" id="mobileStickyBarSearch">
+        <input type="search" class="mobile-sticky-bar__search-input" placeholder="キーワード検索" id="mobileStickyBarSearchInput" />
+        <button type="button" class="mobile-sticky-bar__search-btn" aria-label="検索">
+          <img src="assets/images/icon/kensaku_totu.svg" alt="" class="mobile-sticky-bar__search-icon-img" width="22" height="24" />
         </button>
       </div>
     </div>
