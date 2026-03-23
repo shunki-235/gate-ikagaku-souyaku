@@ -2631,6 +2631,14 @@ body {
     opacity: 0.85;
 }
 
+.detail-contact__cta-label {
+    min-width: 0;
+}
+
+.detail-contact__cta-line {
+    display: inline-block;
+}
+
 .detail-contact__cta-icon {
     flex-shrink: 0;
 }
