@@ -123,7 +123,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 4px 20px;
-    background: #7BBE26;
+    background: #00682F;
     color: var(--white);
     font-size: 14px;
     font-weight: 400;
@@ -136,7 +136,7 @@ body {
 }
 
 .header__contact-btn:hover {
-    background: #6aab1e;
+    background: #005528;
 }
 
 .header__search {
@@ -1298,7 +1298,7 @@ body {
     justify-content: center;
     width: 345px;
     height: 50px;
-    background: #7bbe26;
+    background: #00682F;
     color: var(--white);
     font-size: 24px;
     font-weight: 300;
@@ -1311,7 +1311,7 @@ body {
 }
 
 .sugar-chain__link-btn:hover {
-    background: #6aab1e;
+    background: #005528;
 }
 
 /* Partners (inside sugar-chain) */
@@ -2426,7 +2426,7 @@ body {
 }
 
 .detail-section__heading {
-    background: linear-gradient(to right, #7bbe26, var(--white));
+    background: linear-gradient(to right, #00682F, var(--white));
     padding: 14px 20px;
 }
 
